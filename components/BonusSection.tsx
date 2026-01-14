@@ -1,4 +1,3 @@
-
 import React from 'react';
 import BonusCard from './BonusCard';
 
@@ -7,19 +6,19 @@ const BONUSES = [
     title: "Exército de São Miguel",
     description: "Consagre-se a São Miguel e fortaleça sua vida espiritual com orações e proteção diária.",
     value: "R$ 67",
-    imageUrl: "https://i.imgur.com/yRDy88d.png"
+    imageUrl: "https://i.imgur.com/nrKai3t.png"
   },
   {
     title: "Guia do Santo Rosário e Terço da Misericórdia",
     description: "Aprenda a rezar com profundidade e fé essas duas orações poderosas da Igreja.",
     value: "R$ 47",
-    imageUrl: "https://i.imgur.com/X0X97HJ.png"
+    imageUrl: "https://i.imgur.com/klxiuGH.png"
   },
   {
     title: "Novena da Fé e Confiança em Deus",
     description: "Uma novena simples e eficaz para renovar sua confiança em Deus em qualquer momento.",
     value: "R$ 37",
-    imageUrl: "https://i.imgur.com/yxPZM6w.png"
+    imageUrl: "https://i.imgur.com/SWtLxBo.png"
   }
 ];
 

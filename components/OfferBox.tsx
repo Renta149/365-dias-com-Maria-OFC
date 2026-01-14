@@ -49,8 +49,8 @@ const OfferBox: React.FC = () => {
           <div className="text-left mb-8">
             <p className="text-white/60 text-sm font-bold line-through">De R$ 49,90</p>
             <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold text-white">R$10</span>
-              <span className="text-lg font-bold text-white">,00</span>
+              <span className="text-4xl font-bold text-white">R$9</span>
+              <span className="text-lg font-bold text-white">,90</span>
             </div>
           </div>
 
@@ -98,8 +98,8 @@ const OfferBox: React.FC = () => {
         <div className="text-left mb-8">
           <p className="text-stone-400 text-sm font-bold line-through">De R$ 149,90</p>
           <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-[#002147]">R$27</span>
-            <span className="text-lg font-bold text-[#002147]">,00</span>
+            <span className="text-4xl font-bold text-[#002147]">R$17</span>
+            <span className="text-lg font-bold text-[#002147]">,90</span>
           </div>
         </div>
 
@@ -118,7 +118,7 @@ const OfferBox: React.FC = () => {
         </div>
 
         <button 
-          onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM, 'Plano Premium', 27.00)}
+          onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM, 'Plano Premium', 17.90)}
           className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-bold py-5 rounded-2xl shadow-[0_10px_30px_rgba(45,212,97,0.3)] transition-all animate-pulse-button text-lg uppercase tracking-tighter"
         >
           Garantir Plano Premium
@@ -136,7 +136,7 @@ const OfferBox: React.FC = () => {
             </h2>
             
             <p className="text-slate-700 font-medium text-base md:text-lg leading-relaxed mb-6">
-              Por apenas R$7,00 a mais, leve o Pacote Premium e transforme o <span className="font-bold italic">devocional</span> em uma experiência ainda mais rica, divertida e inesquecevel.
+              Por apenas R$5,00 a mais, leve o Pacote Premium e transforme o <span className="font-bold italic">devocional</span> em uma experiência ainda mais rica, divertida e inesquecevel.
             </p>
 
             <div className="bg-[#f4fcf6] rounded-3xl py-6 px-4 mb-8">
@@ -144,22 +144,22 @@ const OfferBox: React.FC = () => {
                 De <span className="line-through">R$297,00</span> por apenas
               </p>
               <div className="text-[#2dd461] text-5xl md:text-6xl font-black tracking-tighter">
-                R$17,00
+                R$14,90
               </div>
             </div>
 
             <div className="flex flex-col gap-4">
               <button 
-                onClick={() => goToCheckout(CHECKOUT_LINKS.UPSELL, 'Plano Upsell Premium', 17.00)}
-                className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-black py-5 rounded-2xl shadow-[0_10px_25px_rgba(45,212,97,0.3)] transition-all transform active:scale-95 text-xl flex items-center justify-center gap-3"
+                onClick={() => goToCheckout(CHECKOUT_LINKS.UPSELL, 'Plano Upsell Premium', 14.90)}
+                className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-black py-5 rounded-2xl shadow-[0_10px_25px_rgba(45,212,97,0.3)] transition-all transform active:scale-95 text-xl flex items-center justify-center gap-3 animate-pulse-button"
               >
                 Quero Aproveitar
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
               
               <button 
-                onClick={() => goToCheckout(CHECKOUT_LINKS.BASIC, 'Plano Básico Checkout Final', 10.00)}
-                className="w-full bg-white text-[#4a90e2] font-bold py-3 rounded-2xl text-sm border border-slate-100 hover:bg-slate-50 transition-colors"
+                onClick={() => goToCheckout(CHECKOUT_LINKS.BASIC, 'Plano Básico Checkout Final', 9.90)}
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-2xl text-sm transition-colors shadow-lg"
               >
                 Não, Quero o plano básico mesmo.
               </button>
