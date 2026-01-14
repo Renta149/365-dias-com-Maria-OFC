@@ -19,13 +19,13 @@ const App: React.FC = () => {
   };
 
   const MONTH_COVERS = [
-    { name: 'Janeiro', url: 'https://i.imgur.com/904DX13.png' },
-    { name: 'Fevereiro', url: 'https://i.imgur.com/TFzi1Ib.png' },
-    { name: 'Março', url: 'https://i.imgur.com/UL1iCSa.png' },
-    { name: 'Abril', url: 'https://i.imgur.com/kFmApLJ.png' },
-    { name: 'Maio', url: 'https://i.imgur.com/2FpTgkF.png' },
-    { name: 'Junho', url: 'https://i.imgur.com/XdwPlX2.png' },
-    { name: 'Julho', url: 'https://i.imgur.com/A9qM5oB.png' },
+    { name: 'Janeiro', url: 'https://i.imgur.com/TFjIscJ.png' },
+    { name: 'Fevereiro', url: 'https://i.imgur.com/PduPkTT.png' },
+    { name: 'Março', url: 'https://i.imgur.com/o02Zdet.png' },
+    { name: 'Abril', url: 'https://i.imgur.com/UVAGQWk.png' },
+    { name: 'Maio', url: 'https://i.imgur.com/hVdnkwo.png' },
+    { name: 'Junho', url: 'https://i.imgur.com/rpOoUPC.png' },
+    { name: 'Julho', url: 'https://i.imgur.com/CIWSda7.png' },
   ];
 
   const marqueeItems = [...MONTH_COVERS, ...MONTH_COVERS];
@@ -55,7 +55,7 @@ const App: React.FC = () => {
         <div className="relative flex justify-center pt-4 mb-16 w-full max-w-6xl mx-auto">
           <div className="absolute inset-0 bg-blue-500/20 blur-[150px] rounded-full scale-110 animate-pulse"></div>
           <img 
-            src="https://i.imgur.com/qcPpwX6.png" 
+            src="https://i.imgur.com/MofIt7h.png" 
             alt="Devocional 365 Dias com Maria Bundle" 
             className="w-full h-auto relative z-10 drop-shadow-[0_35px_60px_rgba(0,0,0,0.6)]"
             width="1200"
