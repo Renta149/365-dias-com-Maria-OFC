@@ -44,7 +44,7 @@ const App: React.FC = () => {
       <header className="px-6 pt-12 pb-0 text-center mx-auto">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold leading-[1.1] mb-6 tracking-tight">
-            <span className="text-yellow-300">365 dias com maria</span> Devocional diário - Edição 2026
+            Devocional diário <span className="text-yellow-300">365 dias com maria</span> - Edição 2026
           </h1>
           <h2 className="text-lg md:text-2xl font-normal opacity-80 leading-relaxed mb-12 max-w-3xl mx-auto">
             Um devocional diário com inspirações, meditações e orações para <span className="text-yellow-300 font-bold">aprofundar sua espiritualidade mariana</span> e <span className="text-yellow-300 font-bold">fortalecer sua caminhada com Cristo</span>
