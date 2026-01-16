@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FeatureItem, BenefitItem } from './types';
 
@@ -10,20 +9,28 @@ export const COLORS = {
   bonusBg: '#8ab4b8',
 };
 
-export const FEATURES: FeatureItem[] = [
+export interface FeatureItemExtended extends FeatureItem {
+  icon: string;
+}
+
+export const FEATURES: FeatureItemExtended[] = [
   {
+    icon: "📖",
     title: "Reflexões diárias",
     description: "inspiradas na vida e virtudes de Maria que te guiarão ao encontro com Deus",
   },
   {
+    icon: "🙏",
     title: "Orações poderosas",
     description: "que te ajudarão a fortalecer sua fé e confiança em Deus",
   },
   {
+    icon: "⚡",
     title: "Desafios práticos",
-    description: "que incentivam a aplicação dos ensinamentos de Maria em sua vida cotidiana, fazendo com que sua caminhada com Cristo se torne mais profunda",
+    description: "que incentivam a aplicação dos ensinamentos de Maria no dia a dia, aprofundando sua caminhada com Cristo",
   },
   {
+    icon: "✝️",
     title: "Passagens bíblicas",
     description: "que te conectam à Palavra de Deus, trazendo luz e sabedoria para os momentos de dúvida e incerteza",
   },
@@ -31,8 +38,6 @@ export const FEATURES: FeatureItem[] = [
 
 export const BASIC_BENEFITS: BenefitItem[] = [
   { text: "Devocional Digital 365 Dias (Jan a Dez 2026)", checked: true },
-  { text: "Acesso Vitalício", checked: true },
-  { text: "Garantia de 7 dias", checked: true },
   { text: "Bônus: Exército de São Miguel", strikethrough: true },
   { text: "Bônus: Guia do Rosário e Misericórdia", strikethrough: true },
   { text: "Bônus: Novena da Fé e Confiança", strikethrough: true },

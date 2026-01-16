@@ -1,48 +1,50 @@
 import React from 'react';
 
 interface BonusCardProps {
+  id: number;
   title: string;
   description: string;
   value: string;
   imageUrl: string;
 }
 
-const BonusCard: React.FC<BonusCardProps> = ({ title, description, value, imageUrl }) => {
+const BonusCard: React.FC<BonusCardProps> = ({ id, title, description, value, imageUrl }) => {
   return (
-    <div className="bg-[#8ab4b8] rounded-3xl p-5 shadow-xl flex flex-col items-center text-center border border-[#74a1a5] h-full transition-all">
-      {/* Imagem do Bônus */}
-      <div className="w-full flex items-center justify-center mb-8 p-2">
-        <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/20 p-2 border border-white/10">
-          <img 
-            src={imageUrl} 
-            alt={title} 
-            className="max-w-full h-auto object-contain block"
-            style={{ maxHeight: '320px' }}
-            loading="lazy"
-            decoding="async"
-            width="400"
-            height="400"
-          />
+    <div className="group bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border-4 border-black shadow-2xl flex flex-col h-full transition-all hover:border-black/80">
+      
+      {/* Área da Imagem com Selo Amarelo */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden border-b-4 border-black">
+        <img 
+          src={imageUrl} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+        {/* Selo Amarelo - Agora arredondado e com borda mais grossa */}
+        <div className="absolute top-5 right-5 bg-[#facc15] text-black font-black px-5 py-2 rounded-full text-xs shadow-xl border-2 border-black uppercase tracking-tighter">
+          BÔNUS #{id}
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-white mb-4 leading-tight">
-        {title}
-      </h3>
+      {/* Conteúdo do Card */}
+      <div className="p-8 flex flex-col flex-grow text-left">
+        <h3 className="text-white font-black text-2xl mb-4 uppercase leading-tight tracking-tight">
+          {title}
+        </h3>
 
-      <p className="text-sm font-bold text-white leading-relaxed mb-8 flex-grow">
-        {description}
-      </p>
+        <p className="text-white/60 text-base md:text-lg leading-relaxed font-normal mb-8 flex-grow">
+          {description}
+        </p>
 
-      <div className="flex flex-col items-center gap-2">
-        <div className="bg-white/30 px-4 py-2 rounded-lg border border-white/20 shadow-sm">
-          <span className="text-[#f43f5e] font-bold text-base line-through">
-            Valor: {value}
+        {/* Barra de Valor - Agora arredondada e com borda mais grossa */}
+        <div className="bg-[#1e1e1e] border-4 border-black rounded-2xl py-4 px-6 flex items-center justify-center gap-2 shadow-[inset_0_0_15px_rgba(0,0,0,0.3)]">
+          <span className="text-white/60 text-sm font-bold">Valor:</span>
+          <span className="text-red-500 font-bold text-lg line-through decoration-[2px]">
+            {value}
           </span>
-        </div>
-        
-        <div className="text-[#2dd461] font-black text-xl uppercase tracking-tighter">
-          HOJE: GRÁTIS
+          <span className="text-[#2ed462] font-black text-lg ml-1 uppercase">
+            GRÁTIS
+          </span>
         </div>
       </div>
     </div>

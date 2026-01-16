@@ -13,7 +13,6 @@ const OfferBox: React.FC = () => {
   const getUrlWithParams = (baseUrl: string) => {
     const params = window.location.search;
     if (!params) return baseUrl;
-    // Remove o '?' inicial se existir no search para evitar duplicidade
     const cleanParams = params.startsWith('?') ? params.substring(1) : params;
     return baseUrl.includes('?') ? `${baseUrl}&${cleanParams}` : `${baseUrl}?${cleanParams}`;
   };
@@ -26,154 +25,183 @@ const OfferBox: React.FC = () => {
     setShowUpsell(false);
   };
 
-  const goToCheckout = (url: string, planName: string, value: number) => {
+  const goToCheckout = (url: string) => {
     window.location.href = getUrlWithParams(url);
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 max-w-6xl mx-auto px-4 relative">
+    <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-10 max-w-6xl mx-auto px-4 relative py-10">
       
       {/* Plano Básico */}
-      <div className="flex-1 flex flex-col">
-        <div className="flex-grow bg-[#2b435f] rounded-[2.5rem] p-8 shadow-xl text-white flex flex-col border border-white/10 relative overflow-hidden transition-all">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
-              <i className="fa-solid fa-bolt-lightning text-yellow-400 text-xl"></i>
-            </div>
-            <div className="text-left">
-              <h3 className="text-2xl font-bold leading-none text-white">Plano Básico</h3>
-              <p className="text-xs text-white font-bold uppercase tracking-wider mt-1 opacity-70">Pagamento Único</p>
-            </div>
-          </div>
+      <div className="w-full max-w-md flex flex-col bg-white rounded-[2rem] border border-gray-200 shadow-lg text-slate-900 overflow-hidden">
+        <div className="pt-10 pb-4">
+          <h3 className="text-4xl font-black text-center text-slate-900 tracking-tight">Plano básico</h3>
+        </div>
 
-          <div className="text-left mb-8">
-            <p className="text-white/60 text-sm font-bold line-through">De R$ 49,90</p>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold text-white">R$9</span>
-              <span className="text-lg font-bold text-white">,90</span>
+        {/* Mockup Plano Básico - Com arredondamento e borda conforme solicitado */}
+        <div className="px-6 mb-6">
+          <div className="flex items-center justify-center aspect-square overflow-hidden rounded-3xl border-2 border-slate-100">
+            <img 
+              src="https://i.imgur.com/dwKB9hu.png" 
+              alt="Mockup Plano Básico" 
+              className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* Benefits List */}
+        <div className="px-8 space-y-3 mb-8 flex-grow">
+          {BASIC_BENEFITS.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2 border-b border-gray-100 last:border-0 pb-2">
+              {item.strikethrough ? (
+                <i className="fa-solid fa-circle-exclamation text-red-400 mt-1 text-[10px]"></i>
+              ) : (
+                <i className="fa-solid fa-check text-[#37c87c] mt-1 text-xs"></i>
+              )}
+              <p className={`text-[14px] font-bold text-left leading-tight ${item.strikethrough ? 'text-gray-400 opacity-60 line-through' : 'text-slate-800'}`}>
+                {item.text}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="space-y-4 mb-10 flex-grow">
-            {BASIC_BENEFITS.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                {item.strikethrough ? (
-                  <i className="fa-solid fa-xmark text-red-500 mt-1 text-sm"></i>
-                ) : (
-                  <i className="fa-solid fa-check text-yellow-400 mt-1 text-sm"></i>
-                )}
-                <p className={`text-sm font-normal text-left ${item.strikethrough ? 'text-white line-through decoration-red-600 decoration-2 opacity-60' : 'text-white'}`}>
-                  {item.text}
-                </p>
-              </div>
-            ))}
+        {/* Pricing */}
+        <div className="text-center mb-6">
+          <p className="text-red-600 text-xs font-bold line-through mb-1 uppercase tracking-widest">de R$ 49,90 por:</p>
+          <div className="flex justify-center items-center">
+             <span className="text-6xl font-black text-[#37c87c] tracking-tighter">R$9,90</span>
           </div>
+        </div>
 
+        <div className="px-6 pb-10">
           <button 
             onClick={handleBasicClick}
-            className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-bold py-5 rounded-2xl shadow-[0_10px_30px_rgba(45,212,97,0.3)] transition-all text-lg uppercase tracking-tighter"
+            className="w-full bg-[#37c87c] hover:bg-[#2fa869] text-white font-black py-5 px-4 rounded-2xl shadow-lg transition-all text-base leading-tight uppercase tracking-tight mb-6"
           >
-            Garantir Plano Básico
+            GARANTIR MINHA EDIÇÃO 2026
           </button>
+
+          {/* Box de Nudge Social */}
+          <div className="bg-[#fff9c4] border border-[#fdd835] rounded-2xl p-6 flex flex-col items-center justify-center gap-3">
+            <p className="text-slate-800 font-black text-sm md:text-base text-center leading-tight">
+              92% das pessoas aproveitam a oferta abaixo:
+            </p>
+            <div className="w-10 h-10 bg-[#00c853] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+              <i className="fa-solid fa-arrow-down text-white text-lg"></i>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Plano Premium */}
-      <div className="flex-1 bg-[#fcf9f2] rounded-[2.5rem] p-8 shadow-2xl text-slate-800 flex flex-col border-4 border-yellow-400 relative transition-all mt-0 lg:mt-0">
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#d4a017] text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 whitespace-nowrap">
-          <i className="fa-solid fa-star text-sm"></i>
-          <span className="text-xs font-bold uppercase tracking-widest">Mais Vendido</span>
+      {/* Plano Devocional Pro - ATUALIZADO */}
+      <div className="w-full max-w-md flex flex-col bg-white rounded-[2rem] border-4 border-gray-100 shadow-2xl text-slate-900 overflow-visible relative">
+        
+        {/* Selo Verde Superior: MAIS VENDIDO */}
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#76ff7a] text-black px-6 py-2 rounded-full flex items-center gap-2 shadow-lg z-50 whitespace-nowrap border border-black/40">
+          <span className="text-xs">⚡</span>
+          <span className="text-[11px] font-bold uppercase tracking-tight">MAIS VENDIDO</span>
         </div>
 
-        <div className="flex items-center gap-4 mb-6 mt-2">
-          <div className="w-12 h-12 rounded-2xl bg-yellow-100 flex items-center justify-center">
-            <i className="fa-solid fa-crown text-[#d4a017] text-xl"></i>
+        {/* Conteúdo do Topo Premium - Atualizado com a pílula em uma linha */}
+        <div className="mt-12 px-6 flex flex-col items-center gap-6">
+           {/* Pílula Vermelha ÚLTIMA CHANCE - Agora em uma linha conforme pedido */}
+           <div className="bg-[#ff3b3b] text-white px-4 md:px-6 py-3 rounded-full flex items-center justify-center gap-2 shadow-md w-full max-w-[95%]">
+              <span className="text-sm md:text-base">⏰</span>
+              <span className="text-[10px] md:text-[13px] font-black uppercase tracking-tight whitespace-nowrap">
+                 ÚLTIMA CHANCE — OFERTA TERMINA HOJE
+              </span>
+           </div>
+
+           {/* Texto Verde */}
+           <p className="text-[#00c853] text-xl md:text-2xl font-bold">Todos os bônus inclusos</p>
+           
+           <h3 className="text-4xl font-black text-slate-900 leading-tight tracking-tight">Plano Devocional Pro 📖</h3>
+        </div>
+
+        {/* Mockup Plano Devocional Pro */}
+        <div className="px-6 mb-4 mt-2">
+          <div className="flex items-center justify-center aspect-square overflow-hidden relative rounded-3xl border-2 border-slate-100">
+            <img 
+              src="https://i.imgur.com/SwfYG1i.png" 
+              alt="Mockup Plano Premium" 
+              className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
           </div>
-          <div className="text-left">
-            <h3 className="text-2xl font-bold text-[#002147] leading-none">Plano Premium</h3>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Pagamento Único</p>
+        </div>
+
+        {/* Benefits List Premium */}
+        <div className="px-8 space-y-3 mb-8 flex-grow">
+          {PREMIUM_BENEFITS.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2 border-b border-gray-100 last:border-0 pb-2">
+              <i className="fa-solid fa-check text-[#37c87c] mt-1 text-xs"></i>
+              <p className="text-[14px] font-bold text-left leading-tight text-slate-800">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Pricing Premium */}
+        <div className="text-center mb-6">
+          <p className="text-red-600 text-xs font-bold line-through mb-1 uppercase tracking-widest">de R$ 149,90 por:</p>
+          <div className="flex justify-center items-center">
+             <span className="text-7xl font-black text-[#37c87c] tracking-tighter">R$17,90</span>
           </div>
         </div>
 
-        <div className="text-left mb-8">
-          <p className="text-stone-400 text-sm font-bold line-through">De R$ 149,90</p>
-          <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-[#002147]">R$17</span>
-            <span className="text-lg font-bold text-[#002147]">,90</span>
-          </div>
+        {/* CTA Premium */}
+        <div className="px-6 pb-10">
+          <button 
+            onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM)}
+            className="w-full bg-[#37c87c] hover:bg-[#2fa869] text-white font-black py-6 px-4 rounded-2xl shadow-xl transition-all text-lg leading-tight animate-pulse-button uppercase tracking-tight"
+          >
+            GARANTIR MINHA EDIÇÃO PRO
+          </button>
         </div>
 
-        <div className="space-y-4 mb-10 flex-grow">
-          {PREMIUM_BENEFITS.map((item, idx) => {
-            const isBonus = item.text.includes('Bônus:');
-            return (
-              <div key={idx} className="flex items-start gap-3">
-                <i className="fa-solid fa-check text-[#d4a017] mt-1 text-sm"></i>
-                <p className={`text-sm text-left ${idx === 0 && !isBonus ? 'text-[#b8860b] font-bold' : 'text-black font-normal'}`}>
-                  {item.text}
-                </p>
-              </div>
-            );
-          })}
+        {/* Trust Badges footer card */}
+        <div className="border-t border-gray-100 pt-4 pb-8 flex justify-center items-center gap-5 opacity-30">
+           <i className="fa-brands fa-cc-visa text-2xl"></i>
+           <i className="fa-brands fa-cc-mastercard text-2xl"></i>
+           <i className="fa-solid fa-barcode text-2xl"></i>
+           <i className="fa-solid fa-pix text-2xl"></i>
         </div>
-
-        <button 
-          onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM, 'Plano Premium', 17.90)}
-          className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-bold py-5 rounded-2xl shadow-[0_10px_30px_rgba(45,212,97,0.3)] transition-all animate-pulse-button text-lg uppercase tracking-tighter"
-        >
-          Garantir Plano Premium
-        </button>
       </div>
 
       {/* Upsell Modal */}
       {showUpsell && (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={closeUpsell}></div>
-          <div className="bg-white w-full max-w-md rounded-[2.5rem] p-8 shadow-[0_30px_60px_rgba(0,0,0,0.3)] relative z-[1001] animate-[scaleIn_0.3s_ease-out] text-center">
-            
-            <h2 className="text-[#f39c12] text-2xl md:text-3xl font-black leading-tight mb-4">
-              ESPERE! Você está prestes a garantir a oferta completa!
+          <div className="bg-white w-full max-w-md rounded-[2.5rem] p-10 shadow-2xl relative z-[1001] animate-[scaleIn_0.3s_ease-out] text-center border-4 border-[#f39c12]/20">
+            <h2 className="text-[#f39c12] text-3xl font-black leading-tight mb-4 tracking-tighter uppercase">
+              ESPERE! VOCÊ PODE TER TUDO!
             </h2>
-            
-            <p className="text-slate-700 font-medium text-base md:text-lg leading-relaxed mb-6">
-              Por apenas R$5,00 a mais, leve o Pacote Premium e transforme o <span className="font-bold italic">devocional</span> em uma experiência ainda mais rica, divertida e inesquecevel.
+            <p className="text-slate-800 font-bold text-lg leading-relaxed mb-6">
+              Por apenas <span className="text-[#37c87c] font-black">R$5,00 a mais</span>, leve o <span className="font-black italic underline decoration-[#f39c12]/30">Pacote Devocional Pro</span> com todos os bônus e acesso vitalício.
             </p>
-
-            <div className="bg-[#f4fcf6] rounded-3xl py-6 px-4 mb-8">
-              <p className="text-[#27ae60] text-sm md:text-base font-bold mb-1">
-                De <span className="line-through">R$297,00</span> por apenas
-              </p>
-              <div className="text-[#2dd461] text-5xl md:text-6xl font-black tracking-tighter">
-                R$14,90
-              </div>
+            <div className="bg-[#f4fcf6] rounded-3xl py-8 px-4 mb-8 border-2 border-[#37c87c]/10">
+              <p className="text-[#27ae60] text-xs font-black mb-1 uppercase tracking-widest">Oferta Exclusiva Agora:</p>
+              <div className="text-[#37c87c] text-7xl font-black tracking-tighter">R$14,90</div>
             </div>
-
             <div className="flex flex-col gap-4">
               <button 
-                onClick={() => goToCheckout(CHECKOUT_LINKS.UPSELL, 'Plano Upsell Premium', 14.90)}
-                className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-black py-5 rounded-2xl shadow-[0_10px_25px_rgba(45,212,97,0.3)] transition-all transform active:scale-95 text-xl flex items-center justify-center gap-3 animate-pulse-button"
+                onClick={() => goToCheckout(CHECKOUT_LINKS.UPSELL)}
+                className="w-full bg-[#37c87c] text-white font-black py-6 rounded-2xl shadow-xl transition-all text-xl animate-pulse-button uppercase tracking-tight"
               >
-                Quero Aproveitar
-                <i className="fa-solid fa-arrow-right"></i>
+                QUERO O PACOTE PRO
               </button>
-              
               <button 
-                onClick={() => goToCheckout(CHECKOUT_LINKS.BASIC, 'Plano Básico Checkout Final', 9.90)}
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-2xl text-sm transition-colors shadow-lg"
+                onClick={() => goToCheckout(CHECKOUT_LINKS.BASIC)}
+                className="w-full text-red-500 font-black py-2 text-[10px] transition-colors hover:underline uppercase tracking-widest opacity-60"
               >
-                Não, Quero o plano básico mesmo.
+                Não, quero apenas o plano básico (perder bônus)
               </button>
             </div>
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes scaleIn {
-          from { transform: scale(0.9); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-      `}</style>
     </div>
   );
 };

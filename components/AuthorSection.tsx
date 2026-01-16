@@ -36,7 +36,7 @@ const AuthorSection: React.FC = () => {
             <span className="text-white font-bold uppercase tracking-widest text-xs mb-2 block">
               Conheça a idealizadora
             </span>
-            <h2 className="text-2xl md:text-4xl font-black text-white mb-2 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
               Sobre a Autora
             </h2>
             <div className="h-1.5 w-16 bg-white mb-6 rounded-full shadow-sm"></div>
@@ -53,7 +53,7 @@ const AuthorSection: React.FC = () => {
                 Freira e autora católica, Rosangela Aparecida Almeida dedica sua missão à evangelização por meio da espiritualidade mariana e da oração diária.
               </p>
               <p>
-                Idealizadora do <span className="font-black underline decoration-black/40 underline-offset-4">Devocional 365 dias com Maria</span>, conduz fiéis a uma caminhada contínua de fé, confiança e entrega.
+                Idealizadora do <span className="font-bold underline decoration-black/40 underline-offset-4">Devocional 365 dias com Maria</span>, conduz fiéis a uma caminhada contínua de fé, confiança e entrega.
               </p>
             </div>
           </div>

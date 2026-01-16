@@ -4,62 +4,71 @@ import BonusCard from './BonusCard';
 const BONUSES = [
   {
     title: "Exército de São Miguel",
-    description: "Consagre-se a São Miguel e fortaleça sua vida espiritual com orações e proteção diária.",
+    description: "Consagre-se ao Príncipe da Milícia Celeste e receba proteção espiritual diária contra as ciladas do inimigo.",
     value: "R$ 67",
-    imageUrl: "https://i.imgur.com/nrKai3t.png"
+    imageUrl: "https://i.imgur.com/wT16jfn.png"
   },
   {
-    title: "Guia do Santo Rosário e Terço da Misericórdia",
-    description: "Aprenda a rezar com profundidade e fé essas duas orações poderosas da Igreja.",
+    title: "Guia do Santo Rosário",
+    description: "Aprenda a meditar os mistérios da vida de Cristo através das mãos de Maria com profundidade espiritual.",
     value: "R$ 47",
-    imageUrl: "https://i.imgur.com/klxiuGH.png"
+    imageUrl: "https://i.imgur.com/AEutsjb.png"
   },
   {
-    title: "Novena da Fé e Confiança em Deus",
-    description: "Uma novena simples e eficaz para renovar sua confiança em Deus em qualquer momento.",
+    title: "Novena da Fé e Confiança",
+    description: "Um guia de 9 dias para fortalecer sua esperança e confiança inabalável na Providência Divina.",
     value: "R$ 37",
-    imageUrl: "https://i.imgur.com/SWtLxBo.png"
+    imageUrl: "https://i.imgur.com/JUwB5OW.png"
+  },
+  {
+    title: "Plano Bíblico 2026",
+    description: "Cronograma completo para ler a Bíblia inteira em um ano, com foco nos ensinamentos marianos.",
+    value: "R$ 27",
+    imageUrl: "https://i.imgur.com/wC8nK91.png"
+  },
+  {
+    title: "Diário Espiritual Digital",
+    description: "Template organizado para você anotar suas luzes, graças e propósitos colhidos em sua oração.",
+    value: "R$ 37",
+    imageUrl: "https://i.imgur.com/LDbd4di.png"
+  },
+  {
+    title: "Virtudes de Maria",
+    description: "Um estudo aprofundado sobre as 10 virtudes evangélicas de Nossa Senhora para aplicar no seu dia.",
+    value: "R$ 47",
+    imageUrl: "https://i.imgur.com/18Z4DXE.png"
   }
 ];
 
 const BonusSection: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 mb-20">
-      <div className="text-center mb-12">
-        <span className="bg-yellow-400/20 text-yellow-400 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-          Exclusivo para Hoje
-        </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-          Receba 3 Bônus Incríveis GRÁTIS!
-        </h2>
-        <p className="text-lg md:text-xl text-white/80 font-normal max-w-2xl mx-auto">
-          Ao garantir sua edição hoje, você leva esses materiais extras para transformar seus devocionais
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        {BONUSES.map((bonus, idx) => (
-          <BonusCard key={idx} {...bonus} />
-        ))}
-      </div>
-
-      {/* Resumo do Valor dos Bônus */}
-      <div className="max-w-2xl mx-auto bg-[#8ab4b8] rounded-[2rem] p-6 md:p-8 shadow-2xl border border-[#74a1a5] text-center">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-2">
-          <span className="text-lg md:text-2xl font-bold text-white uppercase tracking-tight">
-            Valor Total dos Bônus:
-          </span>
-          <span className="text-xl md:text-3xl font-bold text-[#f43f5e] line-through decoration-2">
-            R$ 151,00
-          </span>
-        </div>
+    <div className="w-full bg-[#2e1515] border-t border-white/5 pt-16 pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         
-        <div className="flex items-center justify-center gap-4">
-          <i className="fa-solid fa-arrow-right text-[#2dd461] text-2xl md:text-3xl hidden md:block"></i>
-          <h4 className="text-3xl md:text-5xl font-black text-[#2dd461] uppercase tracking-tighter flex items-center gap-3">
-            GRÁTIS HOJE!
-            <span className="text-2xl md:text-4xl">🎁</span>
-          </h4>
+        {/* Introdução de Bônus - Espaçamentos reduzidos */}
+        <div className="flex flex-col items-center text-center mb-10">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-3 uppercase tracking-tight leading-[1.1]">
+            E NÃO PARA POR AÍ... <br /> TEM MAIS!
+          </h2>
+          
+          <p className="text-2xl md:text-4xl text-white font-normal italic mb-6 opacity-90">
+            Você também vai receber...
+          </p>
+
+          {/* Selo de Bônus */}
+          <div className="bg-[#ff3b3b] text-white px-5 py-2 rounded-full flex items-center justify-center gap-2 shadow-[0_4px_10px_rgba(255,59,59,0.2)] border border-white/5">
+            <span className="text-sm">🔥</span>
+            <span className="text-[11px] md:text-[14px] font-black uppercase tracking-[0.1em] whitespace-nowrap">
+              6 BÔNUS EXCLUSIVOS
+            </span>
+          </div>
+        </div>
+
+        {/* Grid de Bônus */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {BONUSES.map((bonus, idx) => (
+            <BonusCard key={idx} id={idx + 1} {...bonus} />
+          ))}
         </div>
       </div>
     </div>

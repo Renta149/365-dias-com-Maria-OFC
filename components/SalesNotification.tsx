@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface NotificationData {
   name: string;
-  city: string;
-  state: string;
+  location: string;
   plan: string;
   time: string;
 }
@@ -15,32 +13,27 @@ const NAMES = [
   'Helena M.', 'Cristina B.', 'Sonia L.', 'Renata P.', 'Marta Q.'
 ];
 
+const CITIES = [
+  'São Paulo, SP', 'Rio de Janeiro, RJ', 'Belo Horizonte, MG', 
+  'Curitiba, PR', 'Porto Alegre, RS', 'Salvador, BA', 
+  'Fortaleza, CE', 'Brasília, DF', 'Goiânia, GO', 
+  'Manaus, AM', 'Recife, PE', 'Vitória, ES',
+  'Campinas, SP', 'Joinville, SC', 'Natal, RN'
+];
+
 const SalesNotification: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [data, setData] = useState<NotificationData | null>(null);
-  const [userLocation, setUserLocation] = useState({ city: 'São Paulo', state: 'SP' });
-
-  useEffect(() => {
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(location => {
-        if (location.city && location.region_code) {
-          setUserLocation({ city: location.city, state: location.region_code });
-        }
-      })
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     const showRandomNotification = () => {
       const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
-      const isSameCity = Math.random() > 0.3;
+      const randomLocation = CITIES[Math.floor(Math.random() * CITIES.length)];
       const minutes = Math.floor(Math.random() * 55) + 2;
       
       const notification: NotificationData = {
         name: randomName,
-        city: isSameCity ? userLocation.city : 'Rio de Janeiro',
-        state: isSameCity ? userLocation.state : 'RJ',
+        location: randomLocation,
         plan: Math.random() > 0.4 ? 'Pacote Premium' : 'Plano Básico',
         time: `${minutes} min atrás`
       };
@@ -51,14 +44,16 @@ const SalesNotification: React.FC = () => {
       setTimeout(() => setIsVisible(false), 6000);
     };
 
+    // Primeira notificação após 4 segundos
     const firstTimeout = setTimeout(showRandomNotification, 4000);
+    // Intervalo entre notificações subsequentes
     const interval = setInterval(showRandomNotification, 22000);
 
     return () => {
       clearTimeout(firstTimeout);
       clearInterval(interval);
     };
-  }, [userLocation]);
+  }, []);
 
   if (!data) return null;
 
@@ -70,7 +65,7 @@ const SalesNotification: React.FC = () => {
     >
       <div className="bg-white px-5 py-3 rounded-[1.2rem] shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-[#e8f5e9] flex items-center gap-4 min-w-[260px]">
         
-        {/* Ícone de Carrinho (Azul Claro) */}
+        {/* Ícone de Carrinho */}
         <div className="w-10 h-10 rounded-full bg-[#edf2ff] flex items-center justify-center shrink-0">
           <i className="fa-solid fa-shopping-cart text-[#4c6ef5] text-sm"></i>
         </div>
@@ -85,8 +80,8 @@ const SalesNotification: React.FC = () => {
             Comprou: <span className="font-bold">{data.plan}</span>
           </p>
           
-          <p className="text-[11px] text-slate-400 font-medium mt-0.5">
-            {data.city}, {data.state} - {data.time}
+          <p className="text-[11px] text-slate-400 font-normal mt-0.5">
+            {data.location} - {data.time}
           </p>
         </div>
       </div>
