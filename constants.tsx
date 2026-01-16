@@ -39,16 +39,21 @@ export const FEATURES: FeatureItemExtended[] = [
 export const BASIC_BENEFITS: BenefitItem[] = [
   { text: "Devocional Digital 365 Dias (Jan a Dez 2026)", checked: true },
   { text: "Bônus: Exército de São Miguel", strikethrough: true },
-  { text: "Bônus: Guia do Rosário e Misericórdia", strikethrough: true },
+  { text: "Bônus: Guia do Rosário", strikethrough: true },
   { text: "Bônus: Novena da Fé e Confiança", strikethrough: true },
+  { text: "Bônus: Áudios Oração das 18h", strikethrough: true },
+  { text: "Bônus: Virtudes de Maria", strikethrough: true },
+  { text: "Bônus: Plano Bíblico 2026", strikethrough: true },
 ];
 
 export const PREMIUM_BENEFITS: BenefitItem[] = [
   { text: "Devocional Digital 365 Dias (Jan a Dez 2026)", checked: true },
-  { text: "Plano de leitura biblico anual", checked: true },
   { text: "Acesso Vitalício", checked: true },
-  { text: "Garantia de 30 dias", checked: true },
+  { text: "Garantia de 60 dias", checked: true },
   { text: "🎁 Bônus: Exército de São Miguel", checked: true },
-  { text: "🎁 Bônus: Guia do Rosário e Misericórdia", checked: true },
+  { text: "🎁 Bônus: Guia do Rosário", checked: true },
   { text: "🎁 Bônus: Novena da Fé e Confiança", checked: true },
+  { text: "🎁 Bônus: Áudios Oração das 18h", checked: true },
+  { text: "🎁 Bônus: Virtudes de Maria", checked: true },
+  { text: "🎁 Bônus: Plano Bíblico 2026", checked: true },
 ];

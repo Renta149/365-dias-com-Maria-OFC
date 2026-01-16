@@ -23,7 +23,7 @@ const IdealForSection: React.FC = () => {
           {ITEMS.map((text, idx) => (
             <div 
               key={idx} 
-              className="bg-[#f1faf3] py-6 px-8 md:py-8 md:px-12 rounded-[2rem] border border-[#d8e9dc] shadow-sm flex flex-col md:flex-row items-center text-center md:text-left transition-all hover:shadow-md hover:scale-[1.01] w-full gap-4 md:gap-8"
+              className="bg-[#f1faf3] py-6 px-8 md:py-8 md:px-12 rounded-[2rem] border border-[#d8e9dc] shadow-sm flex flex-col md:flex-row items-center text-center md:text-left w-full gap-4 md:gap-8"
             >
               {/* Ícone de check - Mantido em destaque mas integrado ao fluxo horizontal no desktop */}
               <div className="w-10 h-10 md:w-12 md:h-12 bg-[#22c55e] rounded-full flex items-center justify-center shadow-sm shrink-0">

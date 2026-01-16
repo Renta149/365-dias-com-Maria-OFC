@@ -19,29 +19,6 @@ const ProductContentsSection: React.FC = () => {
         </h3>
       </div>
 
-      {/* Mockup Container - Agora com as duas imagens arredondadas e com bordas */}
-      <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-center w-full max-w-4xl px-4">
-        {/* Imagem 1: Tablet */}
-        <div className="w-full max-w-[320px] rounded-[2rem] overflow-hidden border-4 border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] transition-transform hover:scale-105 duration-500 bg-white/5">
-          <img 
-            src="https://i.imgur.com/dwKB9hu.png" 
-            alt="Tablet Mockup" 
-            className="w-full h-auto block"
-            loading="lazy"
-          />
-        </div>
-        
-        {/* Imagem 2: Bundle */}
-        <div className="w-full max-w-[320px] rounded-[2rem] overflow-hidden border-4 border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] transition-transform hover:scale-105 duration-500 bg-white/5">
-          <img 
-            src="https://i.imgur.com/8squ2g7.png" 
-            alt="Bundle Mockup" 
-            className="w-full h-auto block"
-            loading="lazy"
-          />
-        </div>
-      </div>
-
       {/* Lista de Conteúdo Estilo Anexo 02 */}
       <div className="w-full max-w-xl bg-black/40 border border-red-600/30 rounded-[2.5rem] p-8 md:p-10 relative mt-4 shadow-[0_0_50px_rgba(255,0,0,0.1)]">
         {/* Badge Acesso Imediato - Ajustado para uma única linha com whitespace-nowrap */}

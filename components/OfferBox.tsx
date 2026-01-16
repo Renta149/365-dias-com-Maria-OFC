@@ -33,31 +33,28 @@ const OfferBox: React.FC = () => {
     <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-10 max-w-6xl mx-auto px-4 relative py-10">
       
       {/* Plano Básico */}
-      <div className="w-full max-w-md flex flex-col bg-white rounded-[2rem] border border-gray-200 shadow-lg text-slate-900 overflow-hidden">
+      <div className="w-full max-w-md flex flex-col bg-white rounded-[2rem] border border-gray-200 shadow-lg text-slate-900 overflow-hidden transition-all duration-300">
         <div className="pt-10 pb-4">
-          <h3 className="text-4xl font-black text-center text-slate-900 tracking-tight">Plano básico</h3>
+          <h3 className="text-4xl font-black text-center text-slate-900 tracking-tight uppercase">Plano básico</h3>
         </div>
 
-        {/* Mockup Plano Básico - Com arredondamento e borda conforme solicitado */}
-        <div className="px-6 mb-6">
-          <div className="flex items-center justify-center aspect-square overflow-hidden rounded-3xl border-2 border-slate-100">
-            <img 
-              src="https://i.imgur.com/dwKB9hu.png" 
-              alt="Mockup Plano Básico" 
-              className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
-              loading="lazy"
-            />
-          </div>
+        {/* Imagem Plano Básico - Borda preta e mais fina */}
+        <div className="px-6 mb-4">
+          <img 
+            src="https://i.imgur.com/aRVKSDJ.png" 
+            alt="Mockup Plano Básico" 
+            className="w-full h-auto rounded-[2rem] border-2 border-black shadow-md"
+          />
         </div>
 
         {/* Benefits List */}
-        <div className="px-8 space-y-3 mb-8 flex-grow">
+        <div className="px-8 space-y-3 mb-8 mt-4 flex-grow">
           {BASIC_BENEFITS.map((item, idx) => (
             <div key={idx} className="flex items-start gap-2 border-b border-gray-100 last:border-0 pb-2">
               {item.strikethrough ? (
                 <i className="fa-solid fa-circle-exclamation text-red-400 mt-1 text-[10px]"></i>
               ) : (
-                <i className="fa-solid fa-check text-[#37c87c] mt-1 text-xs"></i>
+                <i className="fa-solid fa-check text-[#2dd461] mt-1 text-xs"></i>
               )}
               <p className={`text-[14px] font-bold text-left leading-tight ${item.strikethrough ? 'text-gray-400 opacity-60 line-through' : 'text-slate-800'}`}>
                 {item.text}
@@ -70,14 +67,14 @@ const OfferBox: React.FC = () => {
         <div className="text-center mb-6">
           <p className="text-red-600 text-xs font-bold line-through mb-1 uppercase tracking-widest">de R$ 49,90 por:</p>
           <div className="flex justify-center items-center">
-             <span className="text-6xl font-black text-[#37c87c] tracking-tighter">R$9,90</span>
+             <span className="text-6xl font-black text-[#2dd461] tracking-tighter">R$9,90</span>
           </div>
         </div>
 
         <div className="px-6 pb-10">
           <button 
             onClick={handleBasicClick}
-            className="w-full bg-[#37c87c] hover:bg-[#2fa869] text-white font-black py-5 px-4 rounded-2xl shadow-lg transition-all text-base leading-tight uppercase tracking-tight mb-6"
+            className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-black py-5 px-4 rounded-2xl shadow-lg transition-all text-base leading-tight animate-pulse-button uppercase tracking-tight mb-6"
           >
             GARANTIR MINHA EDIÇÃO 2026
           </button>
@@ -87,82 +84,95 @@ const OfferBox: React.FC = () => {
             <p className="text-slate-800 font-black text-sm md:text-base text-center leading-tight">
               92% das pessoas aproveitam a oferta abaixo:
             </p>
-            <div className="w-10 h-10 bg-[#00c853] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+            <div className="w-10 h-10 bg-[#2dd461] rounded-full flex items-center justify-center shadow-lg">
               <i className="fa-solid fa-arrow-down text-white text-lg"></i>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Plano Devocional Pro - ATUALIZADO */}
-      <div className="w-full max-w-md flex flex-col bg-white rounded-[2rem] border-4 border-gray-100 shadow-2xl text-slate-900 overflow-visible relative">
+      {/* Devocional Pro - VERSÃO MAIS BONITA */}
+      <div className="w-full max-w-md flex flex-col bg-gradient-to-b from-white via-[#f0fdf4] to-[#e8f5e9] rounded-[2.5rem] border-[6px] border-[#2dd461]/20 shadow-[0_35px_60px_-15px_rgba(45,212,97,0.15)] text-slate-900 overflow-visible relative ring-2 ring-[#2dd461]/5">
         
-        {/* Selo Verde Superior: MAIS VENDIDO */}
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#76ff7a] text-black px-6 py-2 rounded-full flex items-center gap-2 shadow-lg z-50 whitespace-nowrap border border-black/40">
-          <span className="text-xs">⚡</span>
-          <span className="text-[11px] font-bold uppercase tracking-tight">MAIS VENDIDO</span>
+        {/* Selo VIP Superior: MAIS VENDIDO - Efeito de escala removido */}
+        <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#2dd461] to-[#10b981] text-white px-8 py-2.5 rounded-full flex items-center gap-2 shadow-[0_8px_20px_rgba(45,212,97,0.3)] z-50 whitespace-nowrap border-2 border-white cursor-default">
+          <span className="text-sm">👑</span>
+          <span className="text-[12px] font-black uppercase tracking-widest">A ESCOLHA MAIS POPULAR</span>
         </div>
 
-        {/* Conteúdo do Topo Premium - Atualizado com a pílula em uma linha */}
-        <div className="mt-12 px-6 flex flex-col items-center gap-6">
-           {/* Pílula Vermelha ÚLTIMA CHANCE - Agora em uma linha conforme pedido */}
-           <div className="bg-[#ff3b3b] text-white px-4 md:px-6 py-3 rounded-full flex items-center justify-center gap-2 shadow-md w-full max-w-[95%]">
-              <span className="text-sm md:text-base">⏰</span>
-              <span className="text-[10px] md:text-[13px] font-black uppercase tracking-tight whitespace-nowrap">
-                 ÚLTIMA CHANCE — OFERTA TERMINA HOJE
-              </span>
+        {/* Conteúdo do Topo Premium */}
+        <div className="mt-14 px-6 flex flex-col items-center gap-6">
+           {/* Texto Chamativo */}
+           <div className="flex flex-col items-center gap-1">
+             <span className="bg-[#2dd461]/10 text-[#059669] px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-1">Conteúdo VIP Completo</span>
+             <h3 className="text-4xl md:text-5xl font-black leading-tight tracking-tighter uppercase text-center flex items-center justify-center gap-2">
+                <span className="bg-clip-text text-transparent bg-gradient-to-br from-slate-900 to-slate-700">
+                  Devocional
+                </span>
+                <span className="text-[#2dd461]">Pro</span>
+                <span className="normal-case">📖</span>
+             </h3>
            </div>
-
-           {/* Texto Verde */}
-           <p className="text-[#00c853] text-xl md:text-2xl font-bold">Todos os bônus inclusos</p>
-           
-           <h3 className="text-4xl font-black text-slate-900 leading-tight tracking-tight">Plano Devocional Pro 📖</h3>
         </div>
 
-        {/* Mockup Plano Devocional Pro */}
-        <div className="px-6 mb-4 mt-2">
-          <div className="flex items-center justify-center aspect-square overflow-hidden relative rounded-3xl border-2 border-slate-100">
-            <img 
-              src="https://i.imgur.com/SwfYG1i.png" 
-              alt="Mockup Plano Premium" 
-              className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
-              loading="lazy"
-            />
-          </div>
+        {/* Imagem Plano Premium - Borda preta e mais fina - Efeito de escala removido */}
+        <div className="px-6 mt-8 mb-4 relative">
+          <div className="absolute inset-0 bg-[#2dd461]/5 blur-2xl rounded-full scale-90 -z-10"></div>
+          <img 
+            src="https://i.imgur.com/GqtpMSE.png" 
+            alt="Mockup Plano Premium" 
+            className="w-full h-auto rounded-[2rem] border-2 border-black shadow-xl"
+          />
         </div>
 
-        {/* Benefits List Premium */}
-        <div className="px-8 space-y-3 mb-8 flex-grow">
+        {/* Benefits List Premium - Estilizada */}
+        <div className="px-8 space-y-3.5 mb-8 mt-6 flex-grow">
           {PREMIUM_BENEFITS.map((item, idx) => (
-            <div key={idx} className="flex items-start gap-2 border-b border-gray-100 last:border-0 pb-2">
-              <i className="fa-solid fa-check text-[#37c87c] mt-1 text-xs"></i>
-              <p className="text-[14px] font-bold text-left leading-tight text-slate-800">
+            <div key={idx} className="flex items-start gap-3 border-b border-[#2dd461]/10 last:border-0 pb-2.5 group">
+              <div className="bg-[#2dd461] rounded-full p-1 mt-0.5 shadow-sm group-hover:scale-110 transition-transform">
+                <i className="fa-solid fa-check text-white text-[10px]"></i>
+              </div>
+              <p className="text-[14px] md:text-[15px] font-bold text-left leading-snug text-slate-800 tracking-tight">
                 {item.text}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Pricing Premium */}
-        <div className="text-center mb-6">
-          <p className="text-red-600 text-xs font-bold line-through mb-1 uppercase tracking-widest">de R$ 149,90 por:</p>
-          <div className="flex justify-center items-center">
-             <span className="text-7xl font-black text-[#37c87c] tracking-tighter">R$17,90</span>
+        {/* Pricing Premium - Ultra Destacado */}
+        <div className="text-center mb-8 bg-white/50 py-6 rounded-3xl mx-6 border border-white/80 shadow-inner">
+          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Acesso Imediato & Vitalício</p>
+          <p className="text-red-500 text-sm font-bold line-through mb-1 uppercase tracking-widest opacity-60">de R$ 149,90 por:</p>
+          <div className="flex justify-center items-center gap-1">
+             <span className="text-2xl font-bold text-slate-800 self-start mt-2">R$</span>
+             <span className="text-8xl font-black text-[#2dd461] tracking-tighter leading-none">17,90</span>
+          </div>
+          <p className="text-[#059669] text-[11px] font-black mt-2 bg-[#2dd461]/5 inline-block px-3 py-1 rounded-lg">Pague uma vez, use para sempre!</p>
+        </div>
+
+        {/* CTA Premium - Máximo Destaque */}
+        <div className="px-6 pb-12">
+          <button 
+            onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM)}
+            className="w-full bg-[#2dd461] hover:bg-[#28c055] text-white font-black py-7 px-4 rounded-[1.5rem] shadow-[0_20px_40px_rgba(45,212,97,0.3)] transition-all text-base md:text-xl leading-tight animate-pulse-button uppercase tracking-tight border-b-[6px] border-[#22a44b] active:border-b-0 active:translate-y-[6px] whitespace-nowrap"
+          >
+            QUERO O MEU ACESSO PRO AGORA
+          </button>
+          
+          <div className="mt-4 flex flex-col items-center justify-center gap-1 text-center">
+            <div className="flex items-center gap-2 opacity-40">
+              <i className="fa-solid fa-lock text-[10px]"></i>
+              <span className="text-[9px] font-bold uppercase tracking-widest">Ambiente 100% Criptografado</span>
+            </div>
+            {/* Texto de Prova Social Verde */}
+            <p className="text-[#2dd461] text-[11px] md:text-[13px] font-black uppercase tracking-tight mt-1">
+              1.979 pessoas escolheram essa oferta
+            </p>
           </div>
         </div>
 
-        {/* CTA Premium */}
-        <div className="px-6 pb-10">
-          <button 
-            onClick={() => goToCheckout(CHECKOUT_LINKS.PREMIUM)}
-            className="w-full bg-[#37c87c] hover:bg-[#2fa869] text-white font-black py-6 px-4 rounded-2xl shadow-xl transition-all text-lg leading-tight animate-pulse-button uppercase tracking-tight"
-          >
-            GARANTIR MINHA EDIÇÃO PRO
-          </button>
-        </div>
-
         {/* Trust Badges footer card */}
-        <div className="border-t border-gray-100 pt-4 pb-8 flex justify-center items-center gap-5 opacity-30">
+        <div className="border-t border-[#2dd461]/10 pt-4 pb-8 flex justify-center items-center gap-5 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
            <i className="fa-brands fa-cc-visa text-2xl"></i>
            <i className="fa-brands fa-cc-mastercard text-2xl"></i>
            <i className="fa-solid fa-barcode text-2xl"></i>
@@ -179,16 +189,16 @@ const OfferBox: React.FC = () => {
               ESPERE! VOCÊ PODE TER TUDO!
             </h2>
             <p className="text-slate-800 font-bold text-lg leading-relaxed mb-6">
-              Por apenas <span className="text-[#37c87c] font-black">R$5,00 a mais</span>, leve o <span className="font-black italic underline decoration-[#f39c12]/30">Pacote Devocional Pro</span> com todos os bônus e acesso vitalício.
+              Por apenas <span className="text-[#2dd461] font-black">R$5,00 a mais</span>, leve o <span className="font-black italic underline decoration-[#f39c12]/30">Devocional Pro 📖</span> com todos os bônus e acesso vitalício.
             </p>
-            <div className="bg-[#f4fcf6] rounded-3xl py-8 px-4 mb-8 border-2 border-[#37c87c]/10">
+            <div className="bg-[#f4fcf6] rounded-3xl py-8 px-4 mb-8 border-2 border-[#2dd461]/10">
               <p className="text-[#27ae60] text-xs font-black mb-1 uppercase tracking-widest">Oferta Exclusiva Agora:</p>
-              <div className="text-[#37c87c] text-7xl font-black tracking-tighter">R$14,90</div>
+              <div className="text-[#2dd461] text-7xl font-black tracking-tighter">R$14,90</div>
             </div>
             <div className="flex flex-col gap-4">
               <button 
                 onClick={() => goToCheckout(CHECKOUT_LINKS.UPSELL)}
-                className="w-full bg-[#37c87c] text-white font-black py-6 rounded-2xl shadow-xl transition-all text-xl animate-pulse-button uppercase tracking-tight"
+                className="w-full bg-[#2dd461] text-white font-black py-6 rounded-2xl shadow-xl transition-all text-xl animate-pulse-button uppercase tracking-tight"
               >
                 QUERO O PACOTE PRO
               </button>

@@ -13,7 +13,7 @@ import { FEATURES } from './constants';
 // This resolves the TypeScript error where 'key' was not expected in the props type definition.
 const CoverItem: React.FC<{ item: { name: string; url: string } }> = ({ item }) => (
   <div className="w-48 md:w-72 shrink-0 px-3">
-    <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 transition-transform hover:scale-105 duration-300">
+    <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 duration-300">
       <img 
         src={item.url} 
         alt={`Capa ${item.name}`}
@@ -141,7 +141,7 @@ const App: React.FC = () => {
       {/* BLOCO SELECIONADO NA COR PRETA #000000 - CARROSSEL CORRIGIDO */}
       <section className="py-20 text-center bg-[#000000] border-y border-white/10 overflow-hidden">
         <div className="max-w-4xl mx-auto mb-12 px-4">
-          <h3 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight">
+          <h3 className="text-3xl md:text-5 font-bold text-white leading-[1.1] tracking-tight">
             Veja um dos materiais que você vai receber na prática:
           </h3>
         </div>
@@ -174,7 +174,7 @@ const App: React.FC = () => {
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 px-2 md:px-0">
             {FEATURES.map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col items-center text-center transition-transform hover:scale-[1.02]">
+              <div key={idx} className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col items-center text-center">
                 <div className="text-5xl mb-6">
                   {feature.icon}
                 </div>
@@ -228,7 +228,18 @@ const App: React.FC = () => {
           </div>
 
           <GuaranteeSection />
+          
           <FAQSection />
+
+          {/* Botão de CTA após o FAQ - Verde Claro Pulsante */}
+          <div className="mt-4 mb-12">
+            <button 
+              onClick={scrollToPlans}
+              className="w-full max-w-lg bg-[#2dd461] hover:bg-[#28c055] text-white font-bold text-lg md:text-xl py-6 px-8 rounded-2xl shadow-2xl transition-all animate-pulse-button uppercase tracking-tight"
+            >
+              TIREI MINHAS DÚVIDAS, QUERO COMPRAR!
+            </button>
+          </div>
         </div>
       </main>
 

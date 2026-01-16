@@ -43,7 +43,7 @@ const CountdownTimer: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-sm mx-auto bg-[#cc1a1a] rounded-[1.5rem] p-4 md:p-6 shadow-2xl border-4 border-white/10 mb-10 transform hover:scale-[1.02] transition-transform duration-300">
+    <div className="w-full max-w-sm mx-auto bg-[#cc1a1a] rounded-[1.5rem] p-4 md:p-6 shadow-2xl border-4 border-white/10 mb-10">
       <div className="flex flex-col items-center gap-1">
         {/* Label superior */}
         <p className="text-white text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] opacity-90 mb-1">

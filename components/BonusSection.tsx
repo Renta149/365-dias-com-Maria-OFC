@@ -4,39 +4,39 @@ import BonusCard from './BonusCard';
 const BONUSES = [
   {
     title: "Exército de São Miguel",
-    description: "Consagre-se ao Príncipe da Milícia Celeste e receba proteção espiritual diária contra as ciladas do inimigo.",
+    description: "Guia Devocional de orações diárias guiadas para fortalecer sua proteção espiritual e sua confiança em Deus.",
     value: "R$ 67",
-    imageUrl: "https://i.imgur.com/wT16jfn.png"
+    imageUrl: "https://i.imgur.com/DSeakpu.png"
   },
   {
     title: "Guia do Santo Rosário",
-    description: "Aprenda a meditar os mistérios da vida de Cristo através das mãos de Maria com profundidade espiritual.",
+    description: "Passo a passo simples para rezar o Rosário com mais foco, devoção e profundidade espiritual.",
     value: "R$ 47",
-    imageUrl: "https://i.imgur.com/AEutsjb.png"
+    imageUrl: "https://i.imgur.com/pjKxyTr.png"
   },
   {
     title: "Novena da Fé e Confiança",
-    description: "Um guia de 9 dias para fortalecer sua esperança e confiança inabalável na Providência Divina.",
+    description: "9 dias de orações e reflexões para fortalecer sua esperança e confiança na Providência Divina.",
     value: "R$ 37",
-    imageUrl: "https://i.imgur.com/JUwB5OW.png"
+    imageUrl: "https://i.imgur.com/7s1ioAq.png"
   },
   {
     title: "Plano Bíblico 2026",
-    description: "Cronograma completo para ler a Bíblia inteira em um ano, com foco nos ensinamentos marianos.",
+    description: "Planner Bíblico organizado para ler a Bíblia ao longo do ano com constância e clareza espiritual.",
     value: "R$ 27",
-    imageUrl: "https://i.imgur.com/wC8nK91.png"
+    imageUrl: "https://i.imgur.com/qNs7fph.png"
   },
   {
-    title: "Diário Espiritual Digital",
-    description: "Template organizado para você anotar suas luzes, graças e propósitos colhidos em sua oração.",
+    title: "Oração das 18 Horas",
+    description: "Áudio Guia com orações guiadas para ouvir e rezar diariamente, mesmo com a rotina corrida.",
     value: "R$ 37",
-    imageUrl: "https://i.imgur.com/LDbd4di.png"
+    imageUrl: "https://i.imgur.com/8KTtNDN.png"
   },
   {
     title: "Virtudes de Maria",
-    description: "Um estudo aprofundado sobre as 10 virtudes evangélicas de Nossa Senhora para aplicar no seu dia.",
+    description: "Cartões Digitais com reflexões rápidas e práticas para aplicar as virtudes de Maria no seu dia a dia.",
     value: "R$ 47",
-    imageUrl: "https://i.imgur.com/18Z4DXE.png"
+    imageUrl: "https://i.imgur.com/eNJBqFg.png"
   }
 ];
 

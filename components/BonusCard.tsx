@@ -17,7 +17,7 @@ const BonusCard: React.FC<BonusCardProps> = ({ id, title, description, value, im
         <img 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover"
           loading="lazy"
         />
         {/* Selo Amarelo - Agora arredondado e com borda mais grossa */}
