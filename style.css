@@ -1,0 +1,96 @@
+:root {
+  --bg-dark: #1d1d1d;
+  --bg-deep: #0a0a0a;
+  --bg-pure: #000000;
+  --accent-gold: #facc15;
+  --accent-red: #ff3b3b;
+  --success-green: #2dd461;
+  --text-white: #ffffff;
+}
+
+body {
+  background-color: var(--bg-dark);
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: var(--text-white);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animação de Marquee Otimizada para GPU */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulse-button {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-button {
+  animation: pulse-button 2s ease-in-out infinite;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.initial-load-bg {
+  background: radial-gradient(circle at 50% 50%, #2a2a2a 0%, #1d1d1d 100%);
+}
+
+/* Prevenção de CLS no carrossel */
+.animate-marquee>div {
+  min-width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
