@@ -32,8 +32,17 @@ body {
 .animate-marquee {
   display: flex !important;
   width: max-content !important;
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
+  /* Mais lento no mobile pra ser menos agressivo */
   will-change: transform;
+  /* Reserva de altura para evitar CLS */
+  min-height: 350px;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    min-height: 250px;
+  }
 }
 
 .animate-marquee:hover {

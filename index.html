@@ -3,19 +3,19 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Devocional 365 Dias com Maria 2026</title>
 
-  <!-- Pré-conexão com domínios de rastreamento (limite 4) -->
-  <link rel="preconnect" href="https://cdn.utmify.com.br">
+  <!-- DNS Prefetch / Preconnect para domínios essenciais -->
   <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
+  <link rel="preconnect" href="https://cdn.utmify.com.br" crossorigin>
 
-  <!-- Preload das Fontes Críticas -->
+  <!-- Preload das Fontes Críticas (Somente as necessárias para ATF) -->
   <link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Preload do LCP (Largest Contentful Paint) -->
-  <link rel="preload" as="image" href="/assets/images/hero-bundle.webp" fetchpriority="high">
+  <!-- Preload do LCP (Largest Contentful Paint) - Otimizado para Mobile -->
+  <link rel="preload" as="image" href="/assets/images/hero-bundle.webp" fetchpriority="high" imagesizes="100vw">
 
   <!-- CSS Crítico Inline (ATF) + Font Face -->
   <style>
@@ -64,36 +64,35 @@
 
     .header-critical {
       text-align: center;
-      padding-top: 1.5rem;
-      max-width: 64rem;
+      padding: 2rem 1rem 0;
+      max-width: 100%;
       margin: 0 auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      box-sizing: border-box;
     }
 
     .title-critical {
       font-size: 1.875rem;
       line-height: 1.1;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .img-container-critical {
       position: relative;
       width: 100%;
-      aspect-ratio: 3/2;
       max-width: 56rem;
-      margin: 0 auto 1rem auto;
-      background-color: #1d1d1d;
+      margin: 0 auto 1rem;
       border-radius: 1.5rem;
       overflow: hidden;
+      background-color: #222;
+      aspect-ratio: 1200/800;
     }
 
     .lcp-image {
       width: 100%;
       height: auto;
       display: block;
-      content-visibility: auto;
+      object-fit: cover;
     }
 
     @media (min-width: 768px) {
@@ -102,45 +101,66 @@
       }
     }
 
-    /* Ocultar skeleton quando root for hidratado */
     #root:not(:empty) .header-critical {
       display: none;
     }
   </style>
 
-  <!-- Tailwind Local (CSS Enxuto) -->
+  <!-- Tailwind Local -->
   <link rel="stylesheet" href="/tailwind.css">
 
-  <!-- CSS Externo (Crítico para a animação do carrossel) -->
-  <link rel="stylesheet" href="/style.css">
+  <!-- CSS Secundário (Não bloqueante) -->
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/style.css">
+  </noscript>
 
-  <!-- Scripts de Terceiros (Adiados) -->
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
-    async defer></script>
-
-  <!-- FontAwesome (Carregamento não-bloqueante) -->
+  <!-- FontAwesome (Assíncrono) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print"
     onload="this.media='all'">
 
+  <link rel="stylesheet" href="/index.css">
   <script type="module" crossorigin src="/assets/index-C3VkibzW.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/react-vendor-DNbKzdmZ.js">
 </head>
 
 <body class="initial-load-bg">
   <div id="root">
-    <!-- Skeleton Content para LCP Imediato -->
+    <!-- Skeleton Content para LCP Imediato e CLS Zero -->
     <header class="header-critical">
       <h1 class="title-critical">
         Devocional diário <span style="color: #facc15">365 dias com maria</span> - Edição 2026
       </h1>
       <div class="img-container-critical">
         <img src="/assets/images/hero-bundle.webp" alt="Devocional 365 Dias com Maria" class="lcp-image" width="1200"
-          height="800" fetchpriority="high">
+          height="800" fetchpriority="high" decoding="sync" loading="eager">
       </div>
     </header>
   </div>
 
+  <!-- Scripts Otimizados -->
   <script src="/script.js" defer></script>
+
+  <!-- UTMify Loader (Após interação ou idle) -->
+  <script>
+    window.addEventListener('load', function () {
+      const loadTracking = () => {
+        const utmify = document.createElement('script');
+        utmify.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+        utmify.setAttribute('data-utmify-prevent-xcod-sck', '');
+        utmify.setAttribute('data-utmify-prevent-subids', '');
+        utmify.async = true;
+        utmify.defer = true;
+        document.head.appendChild(utmify);
+      };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadTracking, { timeout: 2000 });
+      } else {
+        setTimeout(loadTracking, 1000);
+      }
+    });
+  </script>
 </body>
 
 </html>
